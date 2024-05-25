@@ -1,0 +1,38 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Background from '../components/Background.astro';
+import Surprise from '../components/Surprise.astro';
+import Button from '../components/Button.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorpresa de Viaje</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  </head>
+  <body class="bg-blue-50 text-gray-900 flex flex-col">
+    <Header />
+    <Background />
+    <main class="flex flex-col items-center pt-24 min-h-screen p-6">
+      <h1 class="text-4xl font-bold mb-4 text-blue-700">¡Sorpresa!</h1>
+      <p class="text-xl mb-6">Querida señora,</p>
+      <p class="text-lg mb-6">Por tu cumpleaños, he planeado algo muy especial.</p>
+      <Button />
+      <div id="destiny" class="hidden delay-200 mt-14">
+        <Surprise />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  const destiny = document.querySelector('#surprise');
+  destiny?.addEventListener('click', () => {
+    const destination = document.getElementById('destiny');
+    destination?.classList.toggle('hidden');
+  });
+</script>
